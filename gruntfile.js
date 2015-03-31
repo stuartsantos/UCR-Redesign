@@ -62,6 +62,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    autoprefixer: {
+      options: {
+        map: true
+      },
+      your_target: {
+        src: 'build/css/styles.css'
+      },
+    },
     watch: {
       js: {
         files: ['src/js/*.js'],
@@ -69,7 +77,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['src/sass/*.scss', 'src/sass/**/*.scss', 'config.rb'],
-        tasks: ['compass']
+        tasks: ['compass', 'autoprefixer']
       },
       html: {
         files: ['src/html/*.html', 'src/html/**/*.html'],
@@ -100,6 +108,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
   // Default task(s).
   grunt.registerTask('default', ['browserSync', 'watch']);

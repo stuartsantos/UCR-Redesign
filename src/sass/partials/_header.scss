@@ -1,0 +1,30 @@
+@keyframes header {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -6500px 0;
+  }
+}
+
+header {
+  @include background-image(linear-gradient(left, $secondary, $yellow, $aqua, $primary));
+  color: #fff;
+  font-size: 3.75rem;
+  text-align: center;
+  min-height: 50%;
+  padding: 1rem;
+  background-size: 8000px;
+  animation: header 20s linear 0 infinite alternate;
+  img {
+    max-width: 50%;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.intro {
+  font-size: 1.25rem;
+  display: block;
+}
