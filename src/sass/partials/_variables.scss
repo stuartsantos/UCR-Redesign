@@ -1,0 +1,46 @@
+//mixins
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+//colors
+$primary: #48A8FF;
+$secondary: #FF6A4A;
+
+$aqua: #3AFFD6;
+$light-blue: #67F4FF;
+$yellow: #FFF37B;
+
+$gray: #737373;
+$dark-gray: darken($gray, 10%);
+
+//fonts
+$headline: "fairviewregular", sans-serif;
+$headline-smallcaps: "fairviewsmall_caps", sans-serif;
+$font-serif: "chaparral", serif;
+
+//breakpoints
+$sub-tablet: 590px;
+$tablet: 730px;
+$sub-desktop: 850px;
+$desktop: 981px;
