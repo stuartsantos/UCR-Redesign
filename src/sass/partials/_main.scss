@@ -3,5 +3,66 @@
 }
 
 .flex-3 {
-  @include flexbox();
+  @include flexbox((display: flex, flex-direction: row, flex-wrap: wrap));
+}
+
+@keyframes gearOneRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gearTwoRotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.icon-settings, .icon-thermometer, .icon-query-builder {
+  font-size: 6em;
+  color: $primary;
+}
+
+.icon-thermometer, .icon-query-builder {
+  font-size: 7em;
+}
+
+.benefit {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3em;
+  @include breakpoint($sub-tablet) {
+    width: 500px;
+    margin: 0 auto 3em;
+  }
+  @include breakpoint($tablet) {
+    width: 325px;
+  }
+}
+
+.icon {
+  height: 150px;
+  width: 350px;
+  margin: auto;
+  position: relative;
+}
+
+.gearOne {
+  position: absolute;
+  left: 155px;
+  top: 0;
+  animation: gearOneRotate 20s linear 0s infinite;
+}
+
+.gearTwo {
+  position: absolute;
+  left: 100px;
+  top: 55px;
+  animation: gearTwoRotate 20s linear 0s infinite;
 }

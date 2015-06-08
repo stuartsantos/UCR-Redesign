@@ -15,7 +15,8 @@ header {
   min-height: 50%;
   padding: 1rem;
   background-size: 8000px;
-  animation: header 20s linear 0 infinite alternate;
+  animation: header 20s linear infinite alternate;
+  margin-bottom: 2rem;
   img {
     max-width: 50%;
   }

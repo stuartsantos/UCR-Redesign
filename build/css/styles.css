@@ -72,17 +72,35 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-/* line 27, ../../src/sass/partials/_global.scss */
+@font-face {
+  font-family: 'icomoon';
+  src: url("/font/icomoon.eot?-mk5she");
+  src: url("/font/icomoon.eot?#iefix-mk5she") format("embedded-opentype"), url("/font/icomoon.woff?-mk5she") format("woff"), url("/font/icomoon.ttf?-mk5she") format("truetype"), url("/font/icomoon.svg?-mk5she#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 38, ../../src/sass/partials/_global.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+/* line 48, ../../src/sass/partials/_global.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 31, ../../src/sass/partials/_global.scss */
+/* line 52, ../../src/sass/partials/_global.scss */
 html, body {
   height: 100%;
 }
 
-/* line 35, ../../src/sass/partials/_global.scss */
+/* line 56, ../../src/sass/partials/_global.scss */
 body {
   color: #737373;
   line-height: 1.3;
@@ -94,7 +112,7 @@ body {
   font-family: "adelle", serif;
 }
 
-/* line 46, ../../src/sass/partials/_global.scss */
+/* line 67, ../../src/sass/partials/_global.scss */
 a:link, a:visited, a:active {
   color: #48A8FF;
   text-decoration: none;
@@ -103,50 +121,323 @@ a:link, a:visited, a:active {
   transition: all .2s;
 }
 
-/* line 53, ../../src/sass/partials/_global.scss */
+/* line 74, ../../src/sass/partials/_global.scss */
 a:hover {
   color: #FF6A4A;
 }
 
-/* line 57, ../../src/sass/partials/_global.scss */
+/* line 78, ../../src/sass/partials/_global.scss */
 h1 {
   font-size: 1.5em;
   font-family: "fairviewsmall_caps", sans-serif;
   line-height: 1;
 }
 
-/* line 63, ../../src/sass/partials/_global.scss */
+/* line 84, ../../src/sass/partials/_global.scss */
 h2 {
   color: #48A8FF;
   font-family: "fairviewregular", sans-serif;
-  margin-bottom: .5em;
-  font-size: 1.5em;
+  margin: .25em 0;
+  font-size: 2em;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-}
-@media (min-width: 730px) {
-  /* line 63, ../../src/sass/partials/_global.scss */
-  h2 {
-    text-align: left;
-  }
 }
 
-/* line 75, ../../src/sass/partials/_global.scss */
+/* line 92, ../../src/sass/partials/_global.scss */
 strong {
   font-weight: 700;
 }
 
-/* line 79, ../../src/sass/partials/_global.scss */
+/* line 96, ../../src/sass/partials/_global.scss */
 em {
   font-style: italic;
 }
 
-/* line 83, ../../src/sass/partials/_global.scss */
+/* line 100, ../../src/sass/partials/_global.scss */
 img {
   max-width: 100%;
 }
 
 /***************End Global******************/
+/* line 2, ../../src/sass/partials/_icons.scss */
+.icon-thermometer:before {
+  content: "\e062";
+}
+
+/* line 6, ../../src/sass/partials/_icons.scss */
+.icon-account-balance:before {
+  content: "\e600";
+}
+
+/* line 10, ../../src/sass/partials/_icons.scss */
+.icon-account-child:before {
+  content: "\e601";
+}
+
+/* line 14, ../../src/sass/partials/_icons.scss */
+.icon-account-circle:before {
+  content: "\e602";
+}
+
+/* line 18, ../../src/sass/partials/_icons.scss */
+.icon-announcement:before {
+  content: "\e603";
+}
+
+/* line 22, ../../src/sass/partials/_icons.scss */
+.icon-assessment:before {
+  content: "\e604";
+}
+
+/* line 26, ../../src/sass/partials/_icons.scss */
+.icon-assignment:before {
+  content: "\e605";
+}
+
+/* line 30, ../../src/sass/partials/_icons.scss */
+.icon-assignment-turned-in:before {
+  content: "\e606";
+}
+
+/* line 34, ../../src/sass/partials/_icons.scss */
+.icon-description:before {
+  content: "\e607";
+}
+
+/* line 38, ../../src/sass/partials/_icons.scss */
+.icon-done:before {
+  content: "\e608";
+}
+
+/* line 42, ../../src/sass/partials/_icons.scss */
+.icon-face-unlock:before {
+  content: "\e609";
+}
+
+/* line 46, ../../src/sass/partials/_icons.scss */
+.icon-help:before {
+  content: "\e60a";
+}
+
+/* line 50, ../../src/sass/partials/_icons.scss */
+.icon-info:before {
+  content: "\e60b";
+}
+
+/* line 54, ../../src/sass/partials/_icons.scss */
+.icon-lock-outline:before {
+  content: "\e60c";
+}
+
+/* line 58, ../../src/sass/partials/_icons.scss */
+.icon-perm-identity:before {
+  content: "\e60d";
+}
+
+/* line 62, ../../src/sass/partials/_icons.scss */
+.icon-query-builder:before {
+  content: "\e60e";
+}
+
+/* line 66, ../../src/sass/partials/_icons.scss */
+.icon-room:before {
+  content: "\e60f";
+}
+
+/* line 70, ../../src/sass/partials/_icons.scss */
+.icon-search:before {
+  content: "\e610";
+}
+
+/* line 74, ../../src/sass/partials/_icons.scss */
+.icon-settings:before {
+  content: "\e611";
+}
+
+/* line 78, ../../src/sass/partials/_icons.scss */
+.icon-stars:before {
+  content: "\e612";
+}
+
+/* line 82, ../../src/sass/partials/_icons.scss */
+.icon-store:before {
+  content: "\e613";
+}
+
+/* line 86, ../../src/sass/partials/_icons.scss */
+.icon-thumb-up:before {
+  content: "\e614";
+}
+
+/* line 90, ../../src/sass/partials/_icons.scss */
+.icon-today:before {
+  content: "\e615";
+}
+
+/* line 94, ../../src/sass/partials/_icons.scss */
+.icon-verified-user:before {
+  content: "\e616";
+}
+
+/* line 98, ../../src/sass/partials/_icons.scss */
+.icon-work:before {
+  content: "\e617";
+}
+
+/* line 102, ../../src/sass/partials/_icons.scss */
+.icon-new-releases:before {
+  content: "\e618";
+}
+
+/* line 106, ../../src/sass/partials/_icons.scss */
+.icon-call:before {
+  content: "\e619";
+}
+
+/* line 110, ../../src/sass/partials/_icons.scss */
+.icon-chat:before {
+  content: "\e61a";
+}
+
+/* line 114, ../../src/sass/partials/_icons.scss */
+.icon-email:before {
+  content: "\e61b";
+}
+
+/* line 118, ../../src/sass/partials/_icons.scss */
+.icon-forum:before {
+  content: "\e61c";
+}
+
+/* line 122, ../../src/sass/partials/_icons.scss */
+.icon-messenger:before {
+  content: "\e61d";
+}
+
+/* line 126, ../../src/sass/partials/_icons.scss */
+.icon-stay-current-portrait:before {
+  content: "\e61e";
+}
+
+/* line 130, ../../src/sass/partials/_icons.scss */
+.icon-vpn-key:before {
+  content: "\e61f";
+}
+
+/* line 134, ../../src/sass/partials/_icons.scss */
+.icon-content-paste:before {
+  content: "\e620";
+}
+
+/* line 138, ../../src/sass/partials/_icons.scss */
+.icon-airplanemode-on:before {
+  content: "\e621";
+}
+
+/* line 142, ../../src/sass/partials/_icons.scss */
+.icon-brightness-low:before {
+  content: "\e622";
+}
+
+/* line 146, ../../src/sass/partials/_icons.scss */
+.icon-devices:before {
+  content: "\e623";
+}
+
+/* line 150, ../../src/sass/partials/_icons.scss */
+.icon-attach-money:before {
+  content: "\e624";
+}
+
+/* line 154, ../../src/sass/partials/_icons.scss */
+.icon-border-color:before {
+  content: "\e625";
+}
+
+/* line 158, ../../src/sass/partials/_icons.scss */
+.icon-format-quote:before {
+  content: "\e626";
+}
+
+/* line 162, ../../src/sass/partials/_icons.scss */
+.icon-insert-emoticon:before {
+  content: "\e627";
+}
+
+/* line 166, ../../src/sass/partials/_icons.scss */
+.icon-desktop-mac:before {
+  content: "\e628";
+}
+
+/* line 170, ../../src/sass/partials/_icons.scss */
+.icon-laptop-mac:before {
+  content: "\e629";
+}
+
+/* line 174, ../../src/sass/partials/_icons.scss */
+.icon-phone-iphone:before {
+  content: "\e62a";
+}
+
+/* line 178, ../../src/sass/partials/_icons.scss */
+.icon-wb-incandescent:before {
+  content: "\e62b";
+}
+
+/* line 182, ../../src/sass/partials/_icons.scss */
+.icon-wb-sunny:before {
+  content: "\e62c";
+}
+
+/* line 186, ../../src/sass/partials/_icons.scss */
+.icon-local-atm:before {
+  content: "\e62d";
+}
+
+/* line 190, ../../src/sass/partials/_icons.scss */
+.icon-local-convenience-store:before {
+  content: "\e62e";
+}
+
+/* line 194, ../../src/sass/partials/_icons.scss */
+.icon-local-offer:before {
+  content: "\e62f";
+}
+
+/* line 198, ../../src/sass/partials/_icons.scss */
+.icon-local-shipping:before {
+  content: "\e630";
+}
+
+/* line 202, ../../src/sass/partials/_icons.scss */
+.icon-map:before {
+  content: "\e631";
+}
+
+/* line 206, ../../src/sass/partials/_icons.scss */
+.icon-event-available:before {
+  content: "\e632";
+}
+
+/* line 210, ../../src/sass/partials/_icons.scss */
+.icon-location-city:before {
+  content: "\e633";
+}
+
+/* line 214, ../../src/sass/partials/_icons.scss */
+.icon-poll:before {
+  content: "\e634";
+}
+
+/* line 218, ../../src/sass/partials/_icons.scss */
+.icon-publ:before {
+  content: "\e635";
+}
+
+/* line 222, ../../src/sass/partials/_icons.scss */
+.icon-school:before {
+  content: "\e636";
+}
+
 @-webkit-keyframes header {
   0% {
     background-position: 0 0;
@@ -155,6 +446,7 @@ img {
     background-position: -6500px 0;
   }
 }
+
 @keyframes header {
   0% {
     background-position: 0 0;
@@ -176,19 +468,20 @@ header {
   min-height: 50%;
   padding: 1rem;
   background-size: 8000px;
-  -webkit-animation: header 20s linear 0 infinite alternate;
-          animation: header 20s linear 0 infinite alternate;
+  -webkit-animation: header 20s linear infinite alternate;
+          animation: header 20s linear infinite alternate;
+  margin-bottom: 2rem;
 }
-/* line 19, ../../src/sass/partials/_header.scss */
+/* line 20, ../../src/sass/partials/_header.scss */
 header img {
   max-width: 50%;
 }
-/* line 22, ../../src/sass/partials/_header.scss */
+/* line 23, ../../src/sass/partials/_header.scss */
 header h1 {
   margin-bottom: 1rem;
 }
 
-/* line 27, ../../src/sass/partials/_header.scss */
+/* line 28, ../../src/sass/partials/_header.scss */
 .intro {
   font-size: 1.25rem;
   display: block;
@@ -201,10 +494,118 @@ header h1 {
 
 /* line 5, ../../src/sass/partials/_main.scss */
 .flex-3 {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+@-webkit-keyframes gearOneRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes gearOneRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes gearTwoRotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes gearTwoRotate {
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+/* line 27, ../../src/sass/partials/_main.scss */
+.icon-settings, .icon-thermometer, .icon-query-builder {
+  font-size: 6em;
+  color: #48A8FF;
+}
+
+/* line 32, ../../src/sass/partials/_main.scss */
+.icon-thermometer, .icon-query-builder {
+  font-size: 7em;
+}
+
+/* line 36, ../../src/sass/partials/_main.scss */
+.benefit {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 3em;
+}
+@media (min-width: 590px) {
+  /* line 36, ../../src/sass/partials/_main.scss */
+  .benefit {
+    width: 500px;
+    margin: 0 auto 3em;
+  }
+}
+@media (min-width: 730px) {
+  /* line 36, ../../src/sass/partials/_main.scss */
+  .benefit {
+    width: 325px;
+  }
+}
+
+/* line 49, ../../src/sass/partials/_main.scss */
+.icon {
+  height: 150px;
+  width: 350px;
+  margin: auto;
+  position: relative;
+}
+
+/* line 56, ../../src/sass/partials/_main.scss */
+.gearOne {
+  position: absolute;
+  left: 155px;
+  top: 0;
+  -webkit-animation: gearOneRotate 20s linear 0s infinite;
+          animation: gearOneRotate 20s linear 0s infinite;
+}
+
+/* line 63, ../../src/sass/partials/_main.scss */
+.gearTwo {
+  position: absolute;
+  left: 100px;
+  top: 55px;
+  -webkit-animation: gearTwoRotate 20s linear 0s infinite;
+          animation: gearTwoRotate 20s linear 0s infinite;
 }
 
 /*# sourceMappingURL=styles.css.map */
