@@ -76,16 +76,26 @@ a:hover {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 4rem;
   font-family: $headline-smallcaps;
   line-height: 1;
+  text-align: center;
+  color: $secondary;
 }
 
 h2 {
+  color: $primary-dark;
+  font-family: $headline;
+  margin: .25em 0;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+h3 {
   color: $primary;
   font-family: $headline;
   margin: .25em 0;
-  font-size: 2em;
+  font-size: 2rem;
   text-align: center;
 }
 

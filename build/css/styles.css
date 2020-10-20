@@ -128,31 +128,42 @@ a:hover {
 
 /* line 78, ../../src/sass/partials/_global.scss */
 h1 {
-  font-size: 1.5em;
+  font-size: 4rem;
   font-family: "fairviewsmall_caps", sans-serif;
   line-height: 1;
+  text-align: center;
+  color: #d50000;
 }
 
-/* line 84, ../../src/sass/partials/_global.scss */
+/* line 86, ../../src/sass/partials/_global.scss */
 h2 {
-  color: #1976d2;
+  color: #004ba0;
   font-family: "fairviewregular", sans-serif;
   margin: .25em 0;
-  font-size: 2em;
+  font-size: 3.2rem;
   text-align: center;
 }
 
-/* line 92, ../../src/sass/partials/_global.scss */
+/* line 94, ../../src/sass/partials/_global.scss */
+h3 {
+  color: #1976d2;
+  font-family: "fairviewregular", sans-serif;
+  margin: .25em 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* line 102, ../../src/sass/partials/_global.scss */
 strong {
   font-weight: 700;
 }
 
-/* line 96, ../../src/sass/partials/_global.scss */
+/* line 106, ../../src/sass/partials/_global.scss */
 em {
   font-style: italic;
 }
 
-/* line 100, ../../src/sass/partials/_global.scss */
+/* line 110, ../../src/sass/partials/_global.scss */
 img {
   max-width: 100%;
 }
@@ -477,8 +488,81 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
 
 /* line 29, ../../src/sass/partials/_header.scss */
 .contact {
-  font-size: 1.25rem;
+  font-size: 1rem;
   display: block;
+}
+
+/* line 34, ../../src/sass/partials/_header.scss */
+.links {
+  margin: 1em;
+  background-color: #fff;
+}
+/* line 37, ../../src/sass/partials/_header.scss */
+.links ul {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 100%;
+}
+/* line 40, ../../src/sass/partials/_header.scss */
+.links ul li {
+  display: inline;
+  -webkit-flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  border: 1px solid #1976d2;
+  border-right: none;
+}
+@media (min-width: 730px) {
+  /* line 40, ../../src/sass/partials/_header.scss */
+  .links ul li {
+    width: 25%;
+  }
+}
+/* line 49, ../../src/sass/partials/_header.scss */
+.links ul li a {
+  text-decoration: none;
+  color: #1976d2;
+  padding: .25em;
+  display: inline-block;
+  width: 100%;
+  -webkit-transition: all .2s;
+          transition: all .2s;
+  font-family: "fairviewsmall_caps", sans-serif;
+  font-size: 1rem;
+}
+@media (min-width: 730px) {
+  /* line 49, ../../src/sass/partials/_header.scss */
+  .links ul li a {
+    font-size: 1.25rem;
+  }
+}
+/* line 62, ../../src/sass/partials/_header.scss */
+.links ul li a:hover {
+  color: #fff;
+  background: #d50000;
+}
+/* line 67, ../../src/sass/partials/_header.scss */
+.links ul li:first-child {
+  border-radius: 2px 0 0 2px;
+}
+/* line 70, ../../src/sass/partials/_header.scss */
+.links ul li:last-child {
+  border-radius: 0 2px 2px 0;
+  border-right: 1px solid #1976d2;
 }
 
 /* line 1, ../../src/sass/partials/_main.scss */
