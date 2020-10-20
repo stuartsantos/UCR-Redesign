@@ -37,11 +37,11 @@
   text-align: center;
   width: 100%;
   margin-bottom: 3em;
-  @include breakpoint($sub-tablet) {
+  @include breakpoint(sub-tablet) {
     width: 500px;
     margin: 0 auto 3em;
   }
-  @include breakpoint($tablet) {
+  @include breakpoint(tablet) {
     width: 325px;
   }
 }

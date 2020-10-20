@@ -60,22 +60,22 @@ table {
 /***************Global******************/
 @font-face {
   font-family: 'fairviewregular';
-  src: url("/font/Fairview_Regular-webfont.eot");
-  src: url("/font/Fairview_Regular-webfont.eot?#iefix") format("embedded-opentype"), url("/font/Fairview_Regular-webfont.woff2") format("woff2"), url("/font/Fairview_Regular-webfont.woff") format("woff"), url("/font/Fairview_Regular-webfont.ttf") format("truetype"), url("/font/Fairview_Regular-webfont.svg#fairviewregular") format("svg");
+  src: url("font/Fairview_Regular-webfont.eot");
+  src: url("font/Fairview_Regular-webfont.eot?#iefix") format("embedded-opentype"), url("font/Fairview_Regular-webfont.woff2") format("woff2"), url("font/Fairview_Regular-webfont.woff") format("woff"), url("font/Fairview_Regular-webfont.ttf") format("truetype"), url("font/Fairview_Regular-webfont.svg#fairviewregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'fairviewsmall_caps';
-  src: url("/font/Fairview_SmallCaps-webfont.eot");
-  src: url("/font/Fairview_SmallCaps-webfont.eot?#iefix") format("embedded-opentype"), url("/font/Fairview_SmallCaps-webfont.woff2") format("woff2"), url("/font/Fairview_SmallCaps-webfont.woff") format("woff"), url("/font/Fairview_SmallCaps-webfont.ttf") format("truetype"), url("/font/Fairview_SmallCaps-webfont.svg#fairviewsmall_caps") format("svg");
+  src: url("font/Fairview_SmallCaps-webfont.eot");
+  src: url("font/Fairview_SmallCaps-webfont.eot?#iefix") format("embedded-opentype"), url("font/Fairview_SmallCaps-webfont.woff2") format("woff2"), url("font/Fairview_SmallCaps-webfont.woff") format("woff"), url("font/Fairview_SmallCaps-webfont.ttf") format("truetype"), url("font/Fairview_SmallCaps-webfont.svg#fairviewsmall_caps") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'icomoon';
-  src: url("/font/icomoon.eot?-mk5she");
-  src: url("/font/icomoon.eot?#iefix-mk5she") format("embedded-opentype"), url("/font/icomoon.woff?-mk5she") format("woff"), url("/font/icomoon.ttf?-mk5she") format("truetype"), url("/font/icomoon.svg?-mk5she#icomoon") format("svg");
+  src: url("font/icomoon.eot?-mk5she");
+  src: url("font/icomoon.eot?#iefix-mk5she") format("embedded-opentype"), url("font/icomoon.woff?-mk5she") format("woff"), url("font/icomoon.ttf?-mk5she") format("truetype"), url("font/icomoon.svg?-mk5she#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -114,7 +114,7 @@ body {
 
 /* line 67, ../../src/sass/partials/_global.scss */
 a:link, a:visited, a:active {
-  color: #48A8FF;
+  color: #1976d2;
   text-decoration: none;
   -webkit-transition: all .2s;
   /* For Safari 3.1 to 6.0 */
@@ -123,7 +123,7 @@ a:link, a:visited, a:active {
 
 /* line 74, ../../src/sass/partials/_global.scss */
 a:hover {
-  color: #FF6A4A;
+  color: #d50000;
 }
 
 /* line 78, ../../src/sass/partials/_global.scss */
@@ -135,7 +135,7 @@ h1 {
 
 /* line 84, ../../src/sass/partials/_global.scss */
 h2 {
-  color: #48A8FF;
+  color: #1976d2;
   font-family: "fairviewregular", sans-serif;
   margin: .25em 0;
   font-size: 2em;
@@ -438,51 +438,45 @@ img {
   content: "\e636";
 }
 
-@-webkit-keyframes header {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -6500px 0;
-  }
-}
-
-@keyframes header {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -6500px 0;
-  }
-}
-/* line 10, ../../src/sass/partials/_header.scss */
+/* line 1, ../../src/sass/partials/_header.scss */
 header {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmNmE0YSIvPjxzdG9wIG9mZnNldD0iMzMuMzMzMzMlIiBzdG9wLWNvbG9yPSIjZmZmMzdiIi8+PHN0b3Agb2Zmc2V0PSI2Ni42NjY2NyUiIHN0b3AtY29sb3I9IiMzYWZmZDYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0OGE4ZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q1MDAwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzE5NzZkMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff6a4a), color-stop(33.33333%, #fff37b), color-stop(66.66667%, #3affd6), color-stop(100%, #48a8ff));
-  background-image: -webkit-linear-gradient(left, #ff6a4a, #fff37b, #3affd6, #48a8ff);
-  background-image: linear-gradient(to right, #ff6a4a, #fff37b, #3affd6, #48a8ff);
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #d50000), color-stop(100%, #1976d2));
+  background-image: -webkit-linear-gradient(left, #d50000, #1976d2);
+  background-image: linear-gradient(to right, #d50000, #1976d2);
   color: #fff;
   font-size: 3.75rem;
   text-align: center;
   min-height: 50%;
   padding: 1rem;
-  background-size: 8000px;
-  -webkit-animation: header 20s linear infinite alternate;
-          animation: header 20s linear infinite alternate;
+  background-size: 100%;
   margin-bottom: 2rem;
 }
-/* line 20, ../../src/sass/partials/_header.scss */
+/* line 10, ../../src/sass/partials/_header.scss */
 header img {
   max-width: 50%;
 }
-/* line 23, ../../src/sass/partials/_header.scss */
-header h1 {
+/* line 13, ../../src/sass/partials/_header.scss */
+header .company {
   margin-bottom: 1rem;
+  font-size: 1em;
+  font-family: "fairviewsmall_caps", sans-serif;
+  line-height: .75;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8);
+}
+/* line 20, ../../src/sass/partials/_header.scss */
+header a:link, header a:visited, header a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 23, ../../src/sass/partials/_header.scss */
+header a:link:hover, header a:visited:hover, header a:active:hover {
+  text-decoration: none;
 }
 
-/* line 28, ../../src/sass/partials/_header.scss */
-.intro {
+/* line 29, ../../src/sass/partials/_header.scss */
+.contact {
   font-size: 1.25rem;
   display: block;
 }
@@ -554,7 +548,7 @@ header h1 {
 /* line 27, ../../src/sass/partials/_main.scss */
 .icon-settings, .icon-thermometer, .icon-query-builder {
   font-size: 6em;
-  color: #48A8FF;
+  color: #1976d2;
 }
 
 /* line 32, ../../src/sass/partials/_main.scss */

@@ -1,31 +1,33 @@
-@keyframes header {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -6500px 0;
-  }
-}
-
 header {
-  @include background-image(linear-gradient(left, $secondary, $yellow, $aqua, $primary));
+  @include background-image(linear-gradient(left, $secondary, $primary));
   color: #fff;
   font-size: 3.75rem;
   text-align: center;
   min-height: 50%;
   padding: 1rem;
-  background-size: 8000px;
-  animation: header 20s linear infinite alternate;
+  background-size: 100%;
   margin-bottom: 2rem;
   img {
     max-width: 50%;
   }
-  h1 {
+  .company {
     margin-bottom: 1rem;
+    font-size: 1em;
+    font-family: $headline-smallcaps;
+    line-height: .75;
+    text-shadow: -1px -1px 1px rgba(0,0,0,.8);
+  }
+  a:link, a:visited, a:active {
+    color: #fff;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
-.intro {
+.contact {
   font-size: 1.25rem;
   display: block;
 }
+
