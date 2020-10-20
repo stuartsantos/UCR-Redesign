@@ -75,10 +75,13 @@ a:hover {
   color: $secondary;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
 h1 {
   font-size: 4rem;
   font-family: $headline-smallcaps;
-  line-height: 1;
   text-align: center;
   color: $secondary;
 }
@@ -86,7 +89,7 @@ h1 {
 h2 {
   color: $primary-dark;
   font-family: $headline;
-  margin: .25em 0;
+  margin-bottom: .25em;
   font-size: 3.2rem;
   text-align: center;
 }
@@ -109,6 +112,49 @@ em {
 
 img {
   max-width: 100%;
+}
+
+.col-25p, .col-75p, .col-33p, .col-66p {
+  padding: 2rem;
+}
+
+@include breakpoint(tablet) {
+  .col-25p {
+    width: 25%;
+  }
+
+  .col-33p {
+    width: 33%;
+  }
+
+  .col-50p {
+    width: 50%;
+  }
+
+  .col-66p {
+    width: 66%;
+  }
+
+  .col-75p {
+    width: 75%;
+  }
+
+  .left {
+    text-align: left;
+  }
+}
+
+.maw {
+  max-width: 1080px;
+  margin: auto;
+}
+
+.flex {
+  @include flexbox((display: flex, flex-direction: row, flex-wrap: wrap));
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 /***************End Global******************/
