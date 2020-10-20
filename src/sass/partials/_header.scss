@@ -3,12 +3,23 @@ header {
   color: #fff;
   font-size: 3.75rem;
   text-align: center;
-  min-height: 50%;
   padding: 1rem;
   background-size: 100%;
   margin-bottom: 2rem;
   img {
-    max-width: 50%;
+    max-width: 40%;
+    @include breakpoint(sub-tablet) {
+      max-width: 30%;
+    }
+    @include breakpoint(tablet) {
+      max-width: 25%;
+    }
+    @include breakpoint(sub-desktop) {
+      max-width: 20%;
+    }
+    @include breakpoint(desktop) {
+      max-width: 15%;
+    }
   }
   .company {
     margin-bottom: 1rem;
