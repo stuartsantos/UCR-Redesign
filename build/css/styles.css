@@ -698,6 +698,16 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
   color: #004ba0;
 }
 
+/* line 17, ../../src/sass/partials/_main.scss */
+.p-0 {
+  padding: 0;
+}
+
+/* line 21, ../../src/sass/partials/_main.scss */
+.inset {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 @-webkit-keyframes gearOneRotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -739,37 +749,37 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
             transform: rotate(0deg);
   }
 }
-/* line 35, ../../src/sass/partials/_main.scss */
+/* line 43, ../../src/sass/partials/_main.scss */
 .icon-settings, .icon-thermometer, .icon-query-builder {
   font-size: 4em;
 }
 
-/* line 39, ../../src/sass/partials/_main.scss */
+/* line 47, ../../src/sass/partials/_main.scss */
 .icon-thermometer, .icon-query-builder {
   font-size: 4em;
 }
 
-/* line 43, ../../src/sass/partials/_main.scss */
+/* line 51, ../../src/sass/partials/_main.scss */
 .benefit {
   text-align: center;
   width: 100%;
   margin-bottom: 3em;
 }
 @media (min-width: 590px) {
-  /* line 43, ../../src/sass/partials/_main.scss */
+  /* line 51, ../../src/sass/partials/_main.scss */
   .benefit {
     width: 500px;
     margin: 0 auto 3em;
   }
 }
 @media (min-width: 730px) {
-  /* line 43, ../../src/sass/partials/_main.scss */
+  /* line 51, ../../src/sass/partials/_main.scss */
   .benefit {
     width: 325px;
   }
 }
 
-/* line 56, ../../src/sass/partials/_main.scss */
+/* line 64, ../../src/sass/partials/_main.scss */
 .icon {
   height: 75px;
   width: 350px;
@@ -778,7 +788,7 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
   color: #1976d2;
 }
 
-/* line 64, ../../src/sass/partials/_main.scss */
+/* line 72, ../../src/sass/partials/_main.scss */
 .gearOne {
   position: absolute;
   left: 165px;
@@ -787,7 +797,7 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
           animation: gearOneRotate 20s linear 0s infinite;
 }
 
-/* line 71, ../../src/sass/partials/_main.scss */
+/* line 79, ../../src/sass/partials/_main.scss */
 .gearTwo {
   position: absolute;
   left: 115px;
@@ -796,13 +806,13 @@ header a:link:hover, header a:visited:hover, header a:active:hover {
           animation: gearTwoRotate 20s linear 0s infinite;
 }
 
-/* line 78, ../../src/sass/partials/_main.scss */
+/* line 86, ../../src/sass/partials/_main.scss */
 .side-bar-img {
   max-width: 50%;
   margin: auto;
 }
 
-/* line 83, ../../src/sass/partials/_main.scss */
+/* line 91, ../../src/sass/partials/_main.scss */
 .logo {
   display: block;
   margin: auto;
