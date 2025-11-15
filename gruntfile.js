@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+  // Load html-minifier-terser
+  const { minify } = require('html-minifier-terser');
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -102,12 +105,51 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-autoprefixer');
+
+  // Custom htmlmin task using html-minifier-terser
+  grunt.registerMultiTask('htmlmin', 'Minify HTML files', async function() {
+    const done = this.async();
+    const options = this.options({
+      removeComments: true,
+      collapseWhitespace: true
+    });
+
+    let count = 0;
+    const promises = this.files.map(async (file) => {
+      const src = file.src.filter((filepath) => {
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
+          return false;
+        }
+        return true;
+      });
+
+      if (src.length === 0) {
+        grunt.log.warn('Destination not written because no source files were found.');
+        return;
+      }
+
+      const html = grunt.file.read(src[0]);
+      try {
+        const minified = await minify(html, options);
+        grunt.file.write(file.dest, minified);
+        count++;
+        grunt.log.writeln('File "' + file.dest + '" created.');
+      } catch (err) {
+        grunt.log.error('Error minifying ' + src[0] + ': ' + err.message);
+        done(false);
+      }
+    });
+
+    await Promise.all(promises);
+    grunt.log.ok(count + ' file' + (count === 1 ? '' : 's') + ' minified.');
+    done();
+  });
 
   // Default task(s).
   grunt.registerTask('default', ['browserSync', 'watch']);
