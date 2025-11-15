@@ -19,14 +19,15 @@
   </header>
   <main>
     <div class="container">
-      <h1>24 Hour HVAC Service</h1>
+      <h1>24-Hour HVAC Service</h1> 
       <nav class="links">
         <ul>
           <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#clients">Clients</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#map">Location</a></li>
         </ul>
       </nav>
     </div>
@@ -63,15 +64,15 @@
         </div>
       </div>
     </div>
-    <div class="container red">
+    <div class="container red"> 
       <div class="maw">
         <div class="flex">
             <div class="text col-66p">
-              <h2 class="left">MSCA Star Qualified</h2>
+              <h2 id="certifications" class="left">MSCA Star Qualified</h2>
               <p>As part of an initiative to differentiate HVAC/R service contractors from one another, the Mechanical Service Contractors Association came together and created the STAR qualification program for contractors. <b>This qualification program is the only one of its kind that is ISO 9001 and ANSI-accredited</b>. MSCA STAR qualification assures building owners and facility managers that their STAR qualified contractor is providing the highest level of skill, quality, value, and professionalism in the industry. How? To qualify as an MSCA STAR contractor, applicants must meet eight stringent criteria and submit supporting documentation to ensure all criteria are being met.</p>
             </div>
             <div class="side-bar-img col-33p">
-              <img srcset="/img/tri-state@2x.png 2x, /img/tri-state.png 1x" src="/img/tri-state.png" alt="tri-state map">
+              <img src="/img/MSCA_logo.svg" alt="MSCA star qualified logo"> 
             </div>
           </div>
         </div>
@@ -82,15 +83,30 @@
           <img srcset="/img/tri-state@2x.png 2x, /img/tri-state.png 1x" src="/img/tri-state.png" alt="tri-state map">
         </div>
         <div class="text col-66p">
-          <h2 class="left">Serving the Tri-State Area</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed ipsum massa. Nunc nec rutrum mi. Aenean blandit mattis elit eget cursus. Vestibulum tristique augue eget porttitor rhoncus. Cras congue nisl non arcu scelerisque euismod. Proin non imperdiet lectus, a vehicula erat. Suspendisse a nunc eu erat porttitor fermentum nec et orci.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed ipsum massa. Nunc nec rutrum mi. Aenean blandit mattis elit eget cursus. Vestibulum tristique augue eget porttitor rhoncus. Cras congue nisl non arcu scelerisque euismod. Proin non imperdiet lectus, a vehicula erat. Suspendisse a nunc eu erat porttitor fermentum nec et orci.</p>
+          <h2 id="services" class="left">Serving the Tri-State Area</h2>
+          <h3>24/7/365 repair service of commercial and industrial HVAC/R equipment.</h3>
+          <ul class="list">
+            <li>Comprehensive maintenance programs custom-tailored to you in order to ensure efficient operation of your equipment, all while extending its useful life.</li>
+            <li>Bid / spec construction services.</li>
+            <li>Development, consultation, and design of complete, specialized, turnkey solutions.</li>
+          </ul>
+          <h3>Equipment Serviced / Installed:</h3>
+          <ul class="list">
+            <li>Chillers</li>
+            <li>Cooling Towers</li>
+            <li>Air Handlers</li>
+            <li>Rooftop Units</li>
+            <li>Split Systems</li>
+            <li>Refrigeration Systems</li>
+            <li>Boilers</li>
+            <li>Process Cooling Systems</li> 
+          </ul>
         </div>
       </div>
     </div>
     <div class="container blue">
       <div class="maw">
-        <h2 id="services">Customers That Trust Us</h2>
+        <h2 id="clients">Customers That Trust Us</h2>
         <div class="flex">
           <div class="col-20p flex">
               <img class="logo" src="/img/pfizer-logo.svg" alt="pfizer logo">
@@ -127,6 +143,27 @@
         </div>
       </div>      
     </div>
+    <div class="container maw">
+      <h2 id="testimonials">Testimonials</h2> 
+      <div class="flex testimonials-grid">
+        <div class="customer">
+          <div class="text">During holiday shut down, we were challenged with a very large HVAC project that was required to be FDA compliant to reflect our business needs in a pharmaceutical industry. Under restricted time lines and limited manpower, UCR stepped up for a very committed dedication to our project and delivered the completion of the project on time and on budget.</div>
+          <div class="attribution">Tom Kuhn, Maintenance Superintendent, Actavis Pharmaceuticals</div>
+        </div>
+        <div class="customer">
+          <div class="text">UCR always completes the job on time and is often ahead of schedule. UCR has proven that there is no job too small or large. From air driers to 1000-ton chillers, they will finish the job without callbacks. UCR is an asset to us. They provide preventative maintenance as needed and make recommendations to improve the systems when it is appropriate.</div>
+          <div class="attribution">Philip D'Amore, Maintenance Manager, Manhattan Drug Company</div>
+        </div>
+        <div class="customer">
+          <div class="text">With each and every job done, there was always a high degree of professionalism from the start to clean up after. Their response time to our critical issues as always been outstanding with a true commitment to customer satisfaction. They have recommended and implemented many cost saving measures for our facilities.</div>
+          <div class="attribution">Dennis Buoye, Maintenance Manager, St. Barnabas Medical Center</div>
+        </div>
+        <div class="customer">
+          <div class="text">Expectations are constantly fulfilled or exceeded with each job. UCR treats each issue with the utmost professionalism and their technicians are well versed in their trade. I full recommend UCR to any facility, be it large or small.</div>
+          <div class="attribution">Elliot DeSanto, Procurement Manager, New Jersey American Water</div>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <h2 id="map">Our Location</h2>
       <div class="inset">
@@ -134,5 +171,7 @@
       </div>
     </div>
   </main>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
 </body>
 </html>
