@@ -4,3 +4,4 @@ node_modules
 src/font
 src/img
 .DS_Store
+build/.DS_Store
