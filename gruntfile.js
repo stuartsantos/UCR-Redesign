@@ -42,18 +42,6 @@ module.exports = function(grunt) {
         }]
       }
     },
-    criticalcss: {
-      custom: {
-        options: {
-          url: "http://localhost:4000",
-          width: 1200,
-          height: 900,
-          outputfile: "build/css/critical.css",
-          filename: "build/css/styles.css", // Using path.resolve( path.join( ... ) ) is a good idea here
-          buffer: 800*1024
-        }
-      }
-    },
     connect: {
       server: {
         options: {
@@ -104,7 +92,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -112,6 +99,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['browserSync', 'watch']);
-  grunt.registerTask('critical', ['connect', 'criticalcss']);
 
 };
