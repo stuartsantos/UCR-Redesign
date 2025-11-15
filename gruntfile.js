@@ -58,6 +58,17 @@ module.exports = function(grunt) {
         src: 'build/css/styles.css'
       },
     },
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'build/css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'build/css',
+          ext: '.min.css'
+        }]
+      }
+    },
     watch: {
       js: {
         files: ['src/js/*.js'],
@@ -65,7 +76,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['src/sass/*.scss', 'src/sass/**/*.scss', 'config.rb'],
-        tasks: ['compass', 'autoprefixer']
+        tasks: ['compass', 'autoprefixer', 'cssmin']
       },
       html: {
         files: ['src/html/*.html', 'src/html/**/*.html'],
@@ -92,6 +103,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-connect');
