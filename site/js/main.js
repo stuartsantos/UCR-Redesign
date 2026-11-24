@@ -1,4 +1,5 @@
 // United Cooling & Refrigeration: small page behaviours. No dependencies, no build step.
+// The page works without this file; it only adds two conveniences.
 
 (function () {
   // Keep the footer copyright year current.
@@ -7,30 +8,22 @@
     year.textContent = new Date().getFullYear();
   }
 
-  // Show the "back to top" button once the section navigation has scrolled out of view.
-  var button = document.getElementById('back-to-top');
-  var nav = document.querySelector('.links');
-  if (!button || !nav) {
+  // On phones, show the "Call" bar at the bottom of the screen once the call
+  // button in the hero has scrolled out of view, so there is never more than
+  // one red call button on screen. (The stylesheet hides the bar on larger screens.)
+  var bar = document.getElementById('call-bar');
+  var card = document.getElementById('call-card');
+  if (!bar || !card) {
     return;
   }
 
-  function setVisible(visible) {
-    button.classList.toggle('visible', visible);
+  if (!('IntersectionObserver' in window)) {
+    bar.classList.add('visible');
+    return;
   }
 
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      var entry = entries[0];
-      setVisible(!entry.isIntersecting && entry.boundingClientRect.bottom < 0);
-    }).observe(nav);
-  } else {
-    window.addEventListener('scroll', function () {
-      setVisible(nav.getBoundingClientRect().bottom < 0);
-    }, { passive: true });
-  }
-
-  button.addEventListener('click', function () {
-    // The stylesheet decides whether this scroll is smooth (it is not for reduced-motion users).
-    window.scrollTo(0, 0);
-  });
+  new IntersectionObserver(function (entries) {
+    // Entries arrive oldest first; the last one is the current state.
+    bar.classList.toggle('visible', !entries[entries.length - 1].isIntersecting);
+  }).observe(card);
 })();

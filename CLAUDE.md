@@ -18,29 +18,38 @@ python3 -m http.server 4000 --directory site
 
 `.claude/launch.json` defines the same server as the `site` preview configuration. This server ignores `.htaccess`. To exercise the redirect and header rules, run macOS's built-in Apache (`/usr/sbin/httpd -f <temp conf>`) against a copy of `site/` outside `~/Documents`, because the system `httpd` is not allowed to read that folder.
 
+## Design rules
+
+The design is called "The Steady Line": flat, calm, blue-dominant, left-aligned. Keep to these when changing anything visual.
+
+- **Red means call.** `--red` is only for the phone number and the call buttons. Never use it for headings, links, or decoration, and never put red on blue (the contrast is too low).
+- **Flat surfaces.** No gradients, box shadows, text shadows, or tinted transparent bands. Sections alternate white, `--sheet`, and solid `--blue`.
+- **No illustrations or clever metaphors.** The owner rejected an abstract hero graphic as unreadable. Prefer real content (customer names, the phone number) over drawings, and plain static text over scripted effects.
+- **Type.** Archivo for everything, using its width axis: `font-stretch: 68%` to `85%` on headings, normal width for text. Chivo Mono only for the phone number and the equipment tags.
+
 ## How the site fits together
 
-- `site/index.html` is the whole site. Sections are `<section class="band">` blocks whose `<h2>` carries the `id` that the `.links` navigation points to. Adding or removing a section means updating that navigation, and `site/.htaccess` if an old-URL redirect targets it.
-- `site/css/styles.css` is plain CSS, mobile first. Colors and font stacks are custom properties in `:root`. All `min-width` rules are grouped near the end under four breakpoints: 590, 730, 850, and 981px.
-- `site/js/main.js` only sets the footer year and toggles the back-to-top button.
-- Icons in the Benefits cards are inline SVG. The two gears share one path through `<use href="#gear-shape">`. The paths came from an icon font, which is why each has a `matrix(1 0 0 -1 0 960)` flip.
-- `index.html` uses relative asset paths so the site also works from a subfolder. `404.html` uses root-absolute paths because the server can return it for any URL.
+- `site/index.html` is the whole site: a white top bar (`<header>`), then inside `<main>` the blue hero (headline, call card, customer names) followed by `<section class="band">` blocks. The top bar and footer navigation link to section `id`s, and `site/.htaccess` redirects the old site's pages to `#certifications`, `#careers`, and `#testimonials`, so keep those `id`s.
+- `site/css/styles.css` is plain CSS, mobile first. Colors and font stacks are custom properties in `:root`. All `min-width` rules are grouped near the end under three breakpoints: 35rem, 48rem, and 62rem.
+- `site/js/main.js` sets the footer year and controls the phone call bar. The page must keep working without it.
+- **The call number has two forms.** `.call-number` is a red button below 35rem and large red text above it. `.call-bar` is a fixed bar shown only below 48rem; an inline script in `<head>` adds the `js` class so the bar starts hidden and `main.js` reveals it once the hero call card scrolls out of view. If `main.js` fails to load, its `onerror` removes the class so the bar is always shown.
+- `index.html` uses relative asset paths, so the home page also works from a subfolder. `404.html` uses root-absolute paths because the server can return it for any URL, and the `ErrorDocument` and old-URL redirects in `.htaccess` also assume the web root.
 
 ## Things that are easy to break
 
 - **The domain is written out in several places.** The canonical link, Open Graph tags, and JSON-LD in `index.html`, plus `sitemap.xml` and `robots.txt`, all use `https://unitedcoolingandrefrig.com/`. Change them together.
-- **Contact details are repeated.** Address, phone, email, and fax appear in the header, the Careers section, the footer, `404.html`, and the JSON-LD block.
+- **The phone number is repeated.** It appears in the top bar, the hero call card, the Location section, the footer, the call bar, `404.html`, and the JSON-LD block. Address, email, and fax are repeated too.
 - **`.htaccess` runs on a host nobody here can test.** Keep every block inside `<IfModule>`, avoid `Options` directives, and do not block dot-paths: `/.well-known/` must stay reachable for SSL certificate renewal. Do not add an `index.html` to `/` redirect, since it loops with the directory index.
-- **Fonts.** Headline fonts (Fairview Regular and Small Caps) are self-hosted in `site/fonts/` and preloaded in `index.html`. The body font (Adelle) loads from an Adobe Fonts kit using a non-blocking `rel="preload"` swap with a `<noscript>` fallback.
-- **Images.** Raster logos ship as `name.png` plus `name@2x.png` and are referenced with `srcset`. Every `<img>` has `width` and `height` so the page does not shift while loading.
-- **Generated images.** `favicon.ico`, `apple-touch-icon.png`, `img/icon-192.png`, and `img/social-card.jpg` were composed with Pillow from `img/logo-large.png` on the header's red-to-blue gradient. The social card also uses the Fairview OTF files in `design/source-fonts/`, which are git-ignored and may not exist on a fresh clone.
+- **Fonts are self-hosted** variable fonts in `site/fonts/` (`archivo.woff2`, `chivo-mono.woff2`), preloaded in `index.html`. They are under the SIL Open Font License; keep the two `LICENSE-*.txt` files beside them.
+- **Images.** Every `<img>` has `width` and `height` so the page does not shift while loading. The only tracked full-size logo is the white PNG `design/logo-white.png` (800x326); `site/img/logo-blue.png` and `logo-white.png` are recolored, resized copies of it. Vector originals (`49652_UCRNewLogoVector.eps` and `.psd`) are in the git-ignored `design/source-img/` and may not exist on a fresh clone.
+- **Generated images.** `favicon.ico`, `apple-touch-icon.png`, `img/icon-192.png`, `img/social-card.jpg`, `img/logo-blue.png`, and the recolored `img/tri-state*.png` dot map were made with Pillow. The social card is set in the fonts from `site/fonts/` (Pillow can read the `.woff2` files and set their variation axes).
 
 ## Content status
 
-Some copy is unconfirmed by the business owner: the second and third Benefits cards (marked `DRAFT COPY` in the HTML) and the Careers section. `README.md` lists what to confirm. Keep that list current when changing copy.
+Some content is unconfirmed by the business owner: the customer names in the hero, two of the three service descriptions (marked `DRAFT COPY` in the HTML), and the Careers section. `README.md` lists what to confirm. Keep that list current when changing copy.
 
 ## Not part of the site
 
 - `archive/` is the previous multi-page site, which may still be the one live on the domain.
-- `design/` holds design sources. `design/source-img/` and `design/source-fonts/` are git-ignored local originals.
+- `design/` holds design sources. `design/source-img/` and `design/source-fonts/` are git-ignored local originals (the UCR logo vector files, the old client logo files, and the Fairview fonts the previous design used).
 - `README.md` is the handoff document for the people uploading the site. Write it for non-developers.
