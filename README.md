@@ -45,12 +45,9 @@ If visitors get a "connection is not private" or certificate error, the host has
 
 ## Outside accounts the site relies on
 
-These were set up under Stuart Santos's personal Google account. The site keeps working if they go away, with the effects noted.
+Only one, and the site works without it: the `google-site-verification` line in `index.html` links the site to Stuart Santos's Google Search Console account. If that account goes away, nothing on the page changes.
 
-| What | Where it is used | If it stops working |
-| --- | --- | --- |
-| Google Maps Embed API key | The map under "Our Location" | The map area shows an error |
-| Google Search Console tag | `google-site-verification` line in `index.html` | Only affects Search Console access |
+The map under "Our Location" is Google Maps' standard "Embed a map" code, which needs no account or API key. To move the pin or change the map, find the business on Google Maps, choose Share, then "Embed a map", and paste the new `src` address into the `<iframe class="map">` line in `site/index.html`.
 
 The fonts are stored in `site/fonts/` and need no outside service. Both are free to use and redistribute under the SIL Open Font License; the license files sit beside them and should stay there.
 
