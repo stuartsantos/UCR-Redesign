@@ -4,47 +4,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A single-page static marketing site for United Cooling and Refrigeration (UCR). The project is archived: the Grunt/Compass build tooling was deliberately removed (commit `ed646fa`) because its dependency tree caused constant Dependabot alerts. Do not reintroduce a `package.json`, Grunt, or other npm build tooling unless asked.
+A single-page static marketing site for United Cooling and Refrigeration (UCR), the owner's father's HVAC/R business in Roselle, NJ. It is handed to non-developers who upload it to shared hosting for `unitedcoolingandrefrig.com`, so it must stay simple: no build step, no dependencies, readable files.
 
 ## No build, lint, or test commands
 
-There is no `package.json`, no build step, no linter, and no tests. `build/` is committed and is the deployable site.
+`site/` is the deployable site and the only source of truth. Edit the files in it directly. There is no `package.json`, bundler, minifier, or test suite, and none should be added unless asked. The old Grunt/Compass/Sass pipeline was removed on purpose.
 
-Because nothing regenerates `build/` from `src/`, a change to the site must be applied by hand to both the source file and every built counterpart, or they drift apart:
+To preview, serve `site/` as the web root:
 
-| Source | Built output (all committed) | How it was produced |
-| --- | --- | --- |
-| `src/html/index.html` | `build/index.html` | HTML minified (comments removed, whitespace collapsed) to a single line |
-| `src/sass/styles.scss` + `partials/` | `build/css/styles.css` and `build/css/styles.min.css` | Compass compile, then autoprefixer, then cssmin |
-| `src/js/main.js` | `build/js/main.js` (plain copy) and `build/js/main.min.js` (uglified) | |
+```bash
+python3 -m http.server 4000 --directory site
+```
 
-The page loads only `css/styles.min.css` and `js/main.min.js`, so the minified files are the ones that matter in production.
+`.claude/launch.json` defines the same server as the `site` preview configuration. This server ignores `.htaccess`. To exercise the redirect and header rules, run macOS's built-in Apache (`/usr/sbin/httpd -f <temp conf>`) against a copy of `site/` outside `~/Documents`, because the system `httpd` is not allowed to read that folder.
 
-To preview, serve `build/` as the web root (for example `python3 -m http.server 4000 --directory build`). Opening `build/index.html` from the filesystem breaks most images, because the markup mixes relative paths (`img/logo-small.png`) with root-absolute ones (`/img/...`).
+## How the site fits together
 
-## Sass
+- `site/index.html` is the whole site. Sections are `<section class="band">` blocks whose `<h2>` carries the `id` that the `.links` navigation points to. Adding or removing a section means updating that navigation, and `site/.htaccess` if an old-URL redirect targets it.
+- `site/css/styles.css` is plain CSS, mobile first. Colors and font stacks are custom properties in `:root`. All `min-width` rules are grouped near the end under four breakpoints: 590, 730, 850, and 981px.
+- `site/js/main.js` only sets the footer year and toggles the back-to-top button.
+- Icons in the Benefits cards are inline SVG. The two gears share one path through `<use href="#gear-shape">`. The paths came from an icon font, which is why each has a `matrix(1 0 0 -1 0 960)` flip.
+- `index.html` uses relative asset paths so the site also works from a subfolder. `404.html` uses root-absolute paths because the server can return it for any URL.
 
-`src/sass/styles.scss` is the only entry point. It imports Compass, then `_variables`, `_reset`, and the page partials in order.
+## Things that are easy to break
 
-- The Sass depends on Compass and cannot be compiled with plain Dart Sass as written: it uses `@import 'compass'` and the Compass mixins `flexbox(...)`, `flex(...)`, and `background-image(linear-gradient(...))`.
-- Colors, font stacks, and breakpoints live in `partials/_variables.scss`. Responsive rules use the `breakpoint($name)` mixin (min-width, mobile first) with the names `sub-tablet`, `tablet`, `sub-desktop`, and `desktop`.
-- `partials/_icons.scss` is the full generated IcoMoon class list; the page uses only a few `icon-*` classes.
-- `@font-face` URLs are written relative to the compiled CSS (`font/...`), so they resolve to `build/css/font/`, not to `src/font/`.
+- **The domain is written out in several places.** The canonical link, Open Graph tags, and JSON-LD in `index.html`, plus `sitemap.xml` and `robots.txt`, all use `https://unitedcoolingandrefrig.com/`. Change them together.
+- **Contact details are repeated.** Address, phone, email, and fax appear in the header, the Careers section, the footer, `404.html`, and the JSON-LD block.
+- **`.htaccess` runs on a host nobody here can test.** Keep every block inside `<IfModule>`, avoid `Options` directives, and do not block dot-paths: `/.well-known/` must stay reachable for SSL certificate renewal. Do not add an `index.html` to `/` redirect, since it loops with the directory index.
+- **Fonts.** Headline fonts (Fairview Regular and Small Caps) are self-hosted in `site/fonts/` and preloaded in `index.html`. The body font (Adelle) loads from an Adobe Fonts kit using a non-blocking `rel="preload"` swap with a `<noscript>` fallback.
+- **Images.** Raster logos ship as `name.png` plus `name@2x.png` and are referenced with `srcset`. Every `<img>` has `width` and `height` so the page does not shift while loading.
+- **Generated images.** `favicon.ico`, `apple-touch-icon.png`, `img/icon-192.png`, and `img/social-card.jpg` were composed with Pillow from `img/logo-large.png` on the header's red-to-blue gradient. The social card also uses the Fairview OTF files in `design/source-fonts/`, which are git-ignored and may not exist on a fresh clone.
 
-## Fonts and assets
+## Content status
 
-- Headline fonts (Fairview Regular and Small Caps) and the IcoMoon icon font are self-hosted in `build/css/font/`. The body serif (`adelle`) comes from Adobe Typekit, loaded non-blocking via `rel="preload"` with a `<noscript>` fallback.
-- `src/img/` and `src/font/` are git-ignored design sources (EPS, PSD, OTF). The images the site serves are the tracked copies in `build/img/`, so add or replace site images there.
-- Raster logos ship as `name.png` plus `name@2x.png` and are referenced with `srcset`.
-
-## Deployment-related files
-
-- `build/.htaccess` is Apache config: caching, gzip, an HTTP to HTTPS redirect hardcoded to `stuartsantos.com`, and extensionless-URL rewriting. `build/other/.htaccess` is the same file with the redirect pointed at `test.stuartsantos.com`.
-- `build/php/email.php` is a legacy contact-form mail handler. Nothing on the current page posts to it.
-- `build/sitemap.xml` is an empty file.
+Some copy is unconfirmed by the business owner: the second and third Benefits cards (marked `DRAFT COPY` in the HTML) and the Careers section. `README.md` lists what to confirm. Keep that list current when changing copy.
 
 ## Not part of the site
 
-- `archive/` is the original pre-redesign site, kept for reference.
-- `webfontkit-20150331-065016/`, `tristate.sketch`, `tristate.png`, and `ucrlogo.png` are design and font-kit source material.
-- `node_modules/` and `.sass-cache/` may exist locally as git-ignored leftovers from the removed tooling; nothing uses them.
+- `archive/` is the previous multi-page site, which may still be the one live on the domain.
+- `design/` holds design sources. `design/source-img/` and `design/source-fonts/` are git-ignored local originals.
+- `README.md` is the handoff document for the people uploading the site. Write it for non-developers.

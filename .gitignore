@@ -1,7 +1,13 @@
-.sass-cache
-node_modules
-*.css.map
-src/font
-src/img
+# macOS
 .DS_Store
-build/.DS_Store
+
+# Local-only design sources (large logo/art originals, font originals)
+design/source-img/
+design/source-fonts/
+
+# Leftovers from the removed Grunt/Compass tooling
+node_modules/
+.sass-cache/
+
+# Local handoff bundle
+*.zip

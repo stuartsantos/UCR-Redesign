@@ -1,0 +1,79 @@
+# United Cooling & Refrigeration
+# Server settings for Apache and LiteSpeed hosting. Upload this file with the rest of the site.
+# It is a hidden file: make sure your FTP program or file manager is set to show hidden files.
+
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------
+# Redirects
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Send http:// visitors to https:// on whatever domain the site is served from.
+  # Certificate-validation requests (/.well-known/) are left alone.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Pages from the previous site now live as sections of the home page.
+  RewriteRule ^home\.html$ / [R=301,L]
+  RewriteRule ^credentials\.html$ /#certifications [R=301,NE,L]
+  RewriteRule ^careers\.html$ /#careers [R=301,NE,L]
+  RewriteRule ^testimonials\.html$ /#testimonials [R=301,NE,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Security headers
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# File types
+# ----------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+  AddType image/svg+xml .svg
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Compression
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml image/x-icon
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Browser caching
+# The page itself is always re-checked, so text edits show up right away.
+# Returning visitors may keep an older styles.css or main.js for up to a week.
+# ----------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+</IfModule>
